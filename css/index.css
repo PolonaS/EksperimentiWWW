@@ -267,7 +267,8 @@ img {
 }
 
 .exp_video, .exp_image {
-    margin-top: 80px;
+    margin-top: 30px;
+    margin-bottom: 40px;
 }
 
 .nav li:hover {
@@ -308,6 +309,10 @@ img {
     margin-top: 0;
 }
 
+iframe.quiz {
+    width: 1200px;
+}
+
 @media(max-width:1199px) {
     ul.banner-social-buttons {
         float: left;
@@ -346,3 +351,28 @@ footer {
     background-color: f8f8f8;
 }
 */
+
+
+.pitaya-vklop {
+    border-radius: 5px;
+    border: 1px solid #999;
+    padding: 12px;
+    height: 200px;
+}
+
+.pitaya-vklop2 {
+    border-radius: 5px;
+    border: 1px solid #999;
+    padding: 8px;
+    height: 1000px;
+}
+
+.zip-pitaya {
+    width: 90px;
+
+}
+
+.modal-header,
+.bootstrap-dialog-header {
+    display: none;
+}

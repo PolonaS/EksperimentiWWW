@@ -82,6 +82,7 @@ input[type=password]:focus {
     }
 }
 
+
 #login-form .container form {
     margin-top: 200px;
 
@@ -174,6 +175,11 @@ input[type="radio"] + label {
     -moz-transition: all 0.1s linear;
     transition: all 0.1s linear;
 }
+
+input[type="radio"] + label.correct {
+    background: limegreen;
+}
+
 input[type="radio"] + label:before {
     content: "\f10c";
     font-family: 'fontawesome';
@@ -217,7 +223,7 @@ input[type="radio"]:checked + label:before {
     border: 1px solid #eeeeee;
 }
 
-#emc-score {
+.emc-score {
     text-align: center;
     opacity: 0;
     padding: 0;
@@ -226,21 +232,21 @@ input[type="radio"]:checked + label:before {
     transition: all 0.55s ease;
     font-size: 1.4em;
 }
-#emc-score.new-score {
+.emc-score.new-score {
     opacity: 1;
     background: #00aced;
     color: #fbfbfb;
     padding: 20px;
 }
 
-#emc-submit {
+.emc-submit {
     position: relative;
     -webkit-transition: all 0.33s ease;
     -moz-transition: all 0.33s ease;
     transition: all 0.33s ease;
 }
 
-#emc-submit.ready-show {
+.emc-submit.ready-show {
     color: black;
     background: #00aced;
     border: none;
@@ -257,14 +263,14 @@ input[type="radio"]:checked + label:before {
     transform: rotateX(360deg);
 }
 
-#emc-submit.ready-show:hover {
+.emc-submit.ready-show:hover {
     color: #fbfbfb;
     background: #005ecf;
     /*background: #27b198;*/
     /*border-color: #1f8f7b;*/
 }
 
-#emc-submit.ready-show:active {
+.emc-submit.ready-show:active {
     top: 2px;
     border-bottom: none;
 }
@@ -322,9 +328,9 @@ input[type="radio"]:checked + label:before {
     color: #909090;
 }
 
+/*
 .modal:before {
     content: "";
-    /*display: none;*/
     background: transparent;
     position: fixed;
     top: 0;
@@ -341,7 +347,6 @@ input[type="radio"]:checked + label:before {
     z-index: 10;
     background: rgba(0, 0, 0, 0.6);
     text-align: justify;
-    /*display: block;*/
 }
 
 .modal:target + .modal-dialog {
@@ -361,9 +366,6 @@ input[type="radio"]:checked + label:before {
     top: -100%;
     z-index: 11;
     width: 360px;
-    /*-webkit-transform: translate(0, -500%);
-    -ms-transform: translate(0, -500%);
-    transform: translate(0, -500%);*/
     -webkit-transition: -webkit-transform 0.5s ease-out;
     -moz-transition: -moz-transform 0.5s ease-out;
     -o-transition: -o-transform 0.5s ease-out;
@@ -383,6 +385,7 @@ input[type="radio"]:checked + label:before {
 .modal-footer {
     text-align: right;
 }
+*/
 
 #show-answer-1,
 #show-answer-2,

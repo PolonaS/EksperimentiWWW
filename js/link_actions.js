@@ -19,7 +19,7 @@ $(function() {
     MenuLinks.mainDivs = ['index-intro', 'more-info', 'basic-expressions', 'osciloscope', 'light-bulb', 'solar-cell', 'sound-speed', 'instruments-sound', 'osciloscope-desc',
                           'light-bulb-desc', 'solar-cell-desc', 'sound-speed-desc', 'sound-of-instruments-desc', 'osciloscope-app', 'light-bulb-app', 'solar-cell-app',
                           'sound-speed-app', 'sound-of-instruments-app', 'about-us', 'osciloscope-hard', 'osciloscope-medium', 'osciloscope-easy', 'solar-cell-hard',
-                          'solar-cell-medium', 'solar-cell-easy', 'team', 'press', 'cooperation', 'questionnaire', 'login-form', 'quiz'];
+                          'solar-cell-medium', 'solar-cell-easy', 'light-bulb-hard', 'light-bulb-medium', 'light-bulb-easy', 'team', 'press', 'cooperation', 'questionnaire', 'login-form', 'quiz', 'red-pitaya'];
     MenuLinks.ShowDivs = function(showDivs) {
         var mainDivs = MenuLinks.mainDivs;
         for (var c=0; c<mainDivs.length; c++) {
@@ -190,7 +190,6 @@ MenuLinks.OsciloscopeHard = function() {
     page_navigator.addLi('Domov', 'index.html');
     page_navigator.addLi('Eksperimenti', 'index.html?page=eksperimenti');
     page_navigator.addLi('Osciloskop – opis', 'index.html?page=osciloskop-aplikacija');
-    page_navigator.addLi('Osciloskop – aplikacija', 'index.html?page=osciloskop');
     page_navigator.addLi('Zahtevnejši način izvajanja');
 
     MenuLinks.ShowDivs(['osciloscope-hard']);
@@ -201,7 +200,6 @@ MenuLinks.OsciloscopeMedium = function() {
     page_navigator.addLi('Domov', 'index.html');
     page_navigator.addLi('Eksperimenti', 'index.html?page=eksperimenti');
     page_navigator.addLi('Osciloskop – opis', 'index.html?page=osciloskop-aplikacija');
-    page_navigator.addLi('Osciloskop – aplikacija', 'index.html?page=osciloskop');
     page_navigator.addLi('Srednje zahteven način izvajanja');
 
     MenuLinks.ShowDivs(['osciloscope-medium']);
@@ -212,7 +210,6 @@ MenuLinks.OsciloscopeEasy = function() {
     page_navigator.addLi('Domov', 'index.html');
     page_navigator.addLi('Eksperimenti', 'index.html?page=eksperimenti');
     page_navigator.addLi('Osciloskop – opis', 'index.html?page=osciloskop-aplikacija');
-    page_navigator.addLi('Osciloskop – aplikacija', 'index.html?page=osciloskop');
     page_navigator.addLi('Lažji način izvajanja');
 
     MenuLinks.ShowDivs(['osciloscope-easy']);
@@ -223,7 +220,6 @@ MenuLinks.SolarCellHard = function() {
     page_navigator.addLi('Domov', 'index.html');
     page_navigator.addLi('Eksperimenti', 'index.html?page=eksperimenti');
     page_navigator.addLi('Sončna celica – opis', 'index.html?page=soncna-celica-aplikacija');
-    page_navigator.addLi('Sončna celica – aplikacija', 'index.html?page=soncna-celica');
     page_navigator.addLi('Zahtevnejši način izvajanja');
 
     MenuLinks.ShowDivs(['solar-cell-hard']);
@@ -234,7 +230,6 @@ MenuLinks.SolarCellMedium = function() {
     page_navigator.addLi('Domov', 'index.html');
     page_navigator.addLi('Eksperimenti', 'index.html?page=eksperimenti');
     page_navigator.addLi('Sončna celica – opis', 'index.html?page=soncna-celica-aplikacija');
-    page_navigator.addLi('Sončna celica – aplikacija', 'index.html?page=soncna-celica');
     page_navigator.addLi('Srednje zahteven način izvajanja');
 
     MenuLinks.ShowDivs(['solar-cell-medium']);
@@ -246,10 +241,39 @@ MenuLinks.SolarCellEasy = function() {
     page_navigator.addLi('Domov', 'index.html');
     page_navigator.addLi('Eksperimenti', 'index.html?page=eksperimenti');
     page_navigator.addLi('Sončna celica – opis', 'index.html?page=soncna-celica-aplikacija');
-    page_navigator.addLi('Sončna celica – aplikacija', 'index.html?page=soncna-celica');
     page_navigator.addLi('Lažji način izvajanja');
 
     MenuLinks.ShowDivs(['solar-cell-easy']);
+};
+
+MenuLinks.LightBulbHard = function() {
+    page_navigator.clearAll();
+    page_navigator.addLi('Domov', 'index.html');
+    page_navigator.addLi('Eksperimenti', 'index.html?page=eksperimenti');
+    page_navigator.addLi('Žarnica – opis', 'index.html?page=zarnica-aplikacija');
+    page_navigator.addLi('Težji način izvajanja');
+
+    MenuLinks.ShowDivs(['light-bulb-hard']);
+};
+
+MenuLinks.LightBulbMedium = function() {
+    page_navigator.clearAll();
+    page_navigator.addLi('Domov', 'index.html');
+    page_navigator.addLi('Eksperimenti', 'index.html?page=eksperimenti');
+    page_navigator.addLi('Žarnica – opis', 'index.html?page=zarnica-aplikacija');
+    page_navigator.addLi('Srednje težek način izvajanja');
+
+    MenuLinks.ShowDivs(['light-bulb-medium']);
+};
+
+MenuLinks.LightBulbEasy = function() {
+    page_navigator.clearAll();
+    page_navigator.addLi('Domov', 'index.html');
+    page_navigator.addLi('Eksperimenti', 'index.html?page=eksperimenti');
+    page_navigator.addLi('Žarnica – opis', 'index.html?page=zarnica-aplikacija');
+    page_navigator.addLi('Lažji način izvajanja');
+
+    MenuLinks.ShowDivs(['light-bulb-easy']);
 };
 
 MenuLinks.Team = function() {
@@ -301,6 +325,15 @@ MenuLinks.Quiz = function() {
     MenuLinks.ShowDivs(['quiz']);
 };
 
+
+MenuLinks.RedPitaya = function() {               /* HOME PAGE */
+    page_navigator.clearAll();
+    page_navigator.addLi('Domov', 'index.html');
+    page_navigator.addLi('Red Pitaya');
+
+    MenuLinks.ShowDivs(['red-pitaya']);
+
+};
 
 $(function() {
     var page = getParameterByName('page');
@@ -374,6 +407,15 @@ $(function() {
             case 'soncna-celica-lazji':
                 MenuLinks.SolarCellEasy();
                 break;
+            case 'zarnica-tezji':
+                MenuLinks.LightBulbHard();
+                break;
+            case 'zarnica-srednji':
+                MenuLinks.LightBulbMedium();
+                break;
+            case 'zarnica-lazji':
+                MenuLinks.LightBulbEasy();
+                break;
             case 'ekipa':
                 MenuLinks.Team();
                 break;
@@ -391,6 +433,9 @@ $(function() {
                 break;
             case 'kviz':
                 MenuLinks.Quiz();
+                break;
+            case 'red-pitaja':
+                MenuLinks.RedPitaya();
                 break;
         }
     }

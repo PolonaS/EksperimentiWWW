@@ -2,19 +2,21 @@
     $.fn.emc = function(options) {
 
         var defaults = {
+                container : null,
                 key: [],
                 scoring: "normal",
                 progress: true
             },
             settings = $.extend(defaults,options),
-            $quizItems = $('[data-quiz-item]'),
-            $choices = $('[data-choices]'),
+            $quizItems = $("#"+settings.container+' [data-quiz-item]'),
+            $choices = $("#"+settings.container+' [data-choices]'),
             itemCount = $quizItems.length,
             chosen = [],
             $option = null,
             $label = null;
 
         emcInit();
+
 
         if (settings.progress) {
             var $bar = $('#emc-progress'),
@@ -23,14 +25,15 @@
             $bar.append($inner).prepend($perc);
         }
 
+
         function emcInit() {
             $quizItems.each(function(index,value) {
                 var $this = $(this),
                     $choiceEl = $this.find('.choices'),
                     choices = $choiceEl.data('choices');
                 for (var i = 0; i<choices.length; i++) {
-                    $option = $('<input name="'+index+'" id="'+index+'_'+i+'" type="radio">');
-                    $label = $('<label for="'+index+'_'+i+'">'+choices[i]+'</label>');
+                    $option = $('<input name="'+settings.container+"_"+index+'" id="'+settings.container+"_"+index+'_'+i+'" type="radio">');
+                    $label = $('<label for="'+settings.container+"_"+index+'_'+i+'">'+choices[i]+'</label>');
                     $choiceEl.append($option).append($label);
 
                     $option.on( 'change', function() {
@@ -39,6 +42,7 @@
                 }
             });
         }
+
 
         function getChosen() {
             chosen = [];
@@ -53,9 +57,10 @@
             getProgress();
         }
 
+
         function getProgress() {
-            var prog = (chosen.length / itemCount) * 100 + " %",
-                $submit = $('#emc-submit');
+            var prog = (chosen.length / itemCount) * 100 + " %";
+            var $submit = $("#"+settings.container+' .emc-submit');
             if (settings.progress) {
                 $perc.text(chosen.length+'/'+itemCount);
                 $inner.css({height: prog});
@@ -68,10 +73,11 @@
             }
         }
 
+
         function scoreNormal() {
             var wrong = [],
                 score = null,
-                $scoreEl = $('#emc-score');
+                $scoreEl = $("#"+settings.container+' .emc-score');
             for (var i = 0; i < itemCount; i++) {
                 if (chosen[i] != settings.key[i]) {
                     wrong.push(i);
@@ -81,6 +87,7 @@
                 var $this = $(this);
                 if ($.inArray(index, wrong) !== -1) {
                     $this.removeClass('item-correct').addClass('item-incorrect');
+                    setCorrectLabel(index, settings.key[index]-1);
                 } else {
                     $this.removeClass('item-incorrect').addClass('item-correct');
                 }
@@ -90,7 +97,17 @@
             var correct = (itemCount - wrong.length) + "/" + itemCount;
 
             $scoreEl.text("Pravilno si odgovoril/a na " + correct + " vprašanj (" + score + ").").addClass('new-score');
-            $('html,body').animate({scrollTop: 0}, 50);
+            //$('html,body').animate({scrollTop: 0}, 50);
+        }
+
+        function setCorrectLabel(index1, index2){
+            $quizItems.find('label').each(function(){
+                var _for = $(this).attr("for");
+                var _for_str = settings.container+"_"+index1+"_"+index2;
+                if(_for == _for_str){
+                    $(this).addClass("correct");
+                }
+            });
         }
     }
 }(jQuery));
